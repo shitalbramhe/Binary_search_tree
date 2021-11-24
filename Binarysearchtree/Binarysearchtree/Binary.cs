@@ -12,6 +12,8 @@ namespace Binarysearchtree
         public Binary<T> lefttree { get; set; }
         public Binary<T> righttree { get; set; }
         bool result = false;
+        int leftcount = 0;
+        int rightcount = 0;
 
         public Binary(T nodedata)
         {
@@ -43,13 +45,19 @@ namespace Binarysearchtree
         {
             if (this.lefttree != null)
             {
-                this.lefttree.Display();
+                 this.leftcount++;
+                 this.lefttree.Display();
             }
             Console.WriteLine(this.nodedata.ToString());
             if (this.righttree != null)
             {
+                this.rightcount++; 
                 this.righttree.Display();
             }
+          }
+        public void Size()
+        {
+            Console.WriteLine("Size of Binary Serach Tree " + (1 + leftcount + rightcount));
         }
     }
 }
